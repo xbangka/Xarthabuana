@@ -1,0 +1,14 @@
+RewriteEngine on
+RewriteBase /
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+# ErrorDocument 400 "404 Server Not Found"
+# ErrorDocument 401 "404 Server Not Found"
+# ErrorDocument 403 "404 Server Not Found"
+ErrorDocument 404 "404 Server Not Found"
+# ErrorDocument 405 "404 Server Not Found"
+# ErrorDocument 500 "404 Server Not Found"
+Options All -Indexes
